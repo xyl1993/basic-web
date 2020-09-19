@@ -1,0 +1,78 @@
+/* 覆盖LiquorTree 的默认样式 */
+
+.tree-arrow {
+  margin-left: 0 !important;
+  height: 18px !important;
+
+  &.has-child {
+    width: 19px !important;
+  }
+}
+
+.tree-content {
+  padding-left: 0px;
+  overflow: hidden;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+
+  .tree-anchor {
+    max-width: 100%;
+  }
+
+  .tree-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 30px;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .action-icon {
+      position: absolute;
+      right: 13px;
+    }
+
+    .icon-bianji {
+      right: 1px;
+    }
+  }
+}
+
+.tree-anchor {
+  // margin-left: -8px !important;
+}
+
+.tree-arrow.expanded.has-child:before {
+  content: "\e6a2";
+}
+
+.tree-arrow.has-child:before {
+  content: "\e6df";
+}
+
+.tree-arrow.expanded.has-child:after,
+.tree-arrow.has-child:after {
+  display: none !important;
+}
+
+.tree-arrow.has-child {
+  font-family: "iconfont" !important;
+  font-size: 17px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.tree-checkbox {
+  width: 18px !important;
+  height: 18px !important;
+  &.checked:after{
+    left: 6px !important;
+    top: 3px !important;
+    height: 7px !important;
+    width: 4px !important;
+  }
+}

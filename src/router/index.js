@@ -1,29 +1,47 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import PagesLayout from '../views/pages/routes';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+
+const FullLayout = () => import("../containers/full-layout/full-layout");
+const SimpleLayout = () => import("../containers/simple-layout/simple-layout");
+const Home = () => import("../views/home");
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    component: FullLayout,
+    redirect: "/login",
+    name: "首页",
+    children: [
+      {
+        path: "/home",
+        component: Home,
+        name: "Home",
+        meta: {
+          title: "首页",
+        },
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    path: "/pages",
+    redirect: "/login",
+    component: SimpleLayout,
+    children: [...PagesLayout],
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
+// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+export function resetRouter() {
+  const newRouter = router();
+  router.matcher = newRouter.matcher; // reset router
+}
 
-export default router
+export default router;

@@ -1,0 +1,103 @@
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+
+
+/* 覆盖默认样式 */
+$--base-size: 13px;
+
+.el-input__inner {
+  height: 36px;
+  line-height: 36px;
+}
+
+
+.el-scrollbar {
+  height: 100%;
+  
+}
+
+.scroll-view{
+  .el-scrollbar__wrap{
+    overflow-x: hidden;
+  }
+}
+// .el-scrollbar__wrap {
+//   overflow: scroll;
+//   overflow-x: auto
+// }
+
+.el-table--small,.el-tabs__item {
+  font-size: 13px !important;
+}
+
+
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 160px;
+  height: 160px;
+  line-height: 178px;
+  text-align: center;
+}
+
+.avatar {
+  width: 172px;
+  height: 135px;
+  display: block;
+}
+.scrollbar-wrapper{
+  height: 100%;
+  .el-scrollbar__view{
+    height: 100%;
+  }
+}
+
+.el-tabs__item {
+  font-size: 16px;
+}
+
+.el-pagination {
+  text-align: right;
+}
+
+.el-button--small{
+  padding: 8px 14px;
+}
+
+.el-dialog__body{
+  padding: 15px 20px;
+}
+
+.el-dialog:not(.dialog-drag){
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin:0 !important;
+  transform:translate(-50%, -50%);
+  max-height:calc(100% - 30px);
+  max-width:calc(100% - 30px);
+  display:flex;
+  flex-direction:column;
+  >.el-dialog__body{
+    overflow: auto;
+  }
+}
+.el-radio__input.is-disabled + span.el-radio__label,
+.el-checkbox__input.is-disabled + span.el-checkbox__label{
+  color: #606266 !important;
+}
